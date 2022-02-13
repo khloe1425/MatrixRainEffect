@@ -1,0 +1,16 @@
+- Canvas là một phần tử của HTML5, cho phép thực hiện lập trình kết xuất đồ họa các đối tượng hai chiều trên trang web. Canvas chiếm một khu vực trong trang web với chiều rộng và chiều cao định trước. Sau đó sử dụng Javascript có thể truy cập vào khu vực này để vẽ thông qua một tập các hàm đồ họa tương tự như các API 2D khác.
+
+- Canvas có thể giúp hiển thị trực quan một số hình ảnh dễ dàng trên trình duyệt như:
+  Các sơ đồ đơn giản
+  Trang trí thêm cho giao diện người dùng
+  Hình ảnh động
+  Biểu đồ và đồ thị
+  Có thể nhúng các ứng dụng vẽ
+  Hoạt động tốt với những hạn chế của CSS
+
+- Canvas chiếm một khu vực hình chữ nhật trên trang web mà kích thước của hình chữ nhật được quy định bởi nó. Lưu ý: Mặc định thẻ canvas sẽ không có đường viền và nội dung rỗng.
+
+- Khai báo canvas : <canvas id="myCanvas" width="500" height="300"></canvas>
+  Có thể có nhiều thẻ <canvas> trên một trang HTML. Mặc định, thẻ canvas chỉ có 2 phần tử: width và height. Nếu không được chỉ ra kích thước, thì kích thước mặc định là 300px chiều rộng và 150px chiều cao.
+  Ví dụ tạo đường viền cho thẻ canvas : <canvas id="myCanvas" width="500" height="300" style="border:1px solid #000000;"></canvas>
+
