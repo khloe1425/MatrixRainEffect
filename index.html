@@ -12,55 +12,53 @@
   * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     overflow: hidden;
   }
 </style>
 
 <body>
-  <canvas id="myCanvas"></canvas>
+  <canvas id="myCanvas" style="background: #111;"></canvas>
 
   <script>
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
 
-    var width = window.innerWidth
-      || document.documentElement.clientWidth
-      || document.body.clientWidth;
+    // Set canvas frame
+    var W = window.innerWidth
+      || document.documentElement.clientWidth //For IE v.5,6,7,8
+      || document.body.clientWidth; //For IE v.5,6,7,8
+    var H = window.innerHeight
+      || document.documentElement.clientHeight //For IE v.5,6,7,8
+      || document.body.clientHeight; //For IE v.5,6,7,8
+    canvas.width = W;
+    canvas.height = H;
 
-    var height = window.innerHeight
-      || document.documentElement.clientHeight
-      || document.body.clientHeight;
-
-    canvas.width = width;
-    canvas.height = height;
-
-    var fontSize = 16;
-    var columns = Math.floor(width / fontSize);
+    // Render
+    var space = 16;
+    var columns = Math.floor(W / space);
     var drops = [];
     for (var i = 0; i <= columns; i++) {
       drops.push(0);
     }
+    var string = "0 1";
+    setInterval(function () {
+      context.fillStyle = "rgba(0,0,0,0.07)";
+      context.fillRect(0, 0, W, H);
 
-    var string = "JavaScript Hacking Effect";
-    var draw = function () {
-      context.fillStyle = "rgba(0,0,0,0.05)";
-      context.fillRect(0, 0, width, height);
       context.fillStyle = "#00cc33";
-      context.fontSize = "700" + fontSize + "px";
+      context.font = "bold 10px Arial";
       for (var i = 0; i <= columns; i++) {
         var index = Math.floor(Math.random() * string.length);
-        var x = i * fontSize;
-        var y = drops[i] * fontSize;
-        context.fillText(string[index],x,y);
-        if(y>=canvas.height&&Math.random()>0.99){
-          drops[i]=0;
-        }
+        var x = i * space;
+        var y = drops[i] * space;
+        context.fillText(string[index], x, y);
         drops[i]++;
+        if (y >= canvas.height && Math.random() > 0.9) {
+          drops[i] = 0;
+        }
       }
-    }
-    draw();
-    setInterval(draw,35);
+    }, 30);
+
   </script>
 </body>
 
